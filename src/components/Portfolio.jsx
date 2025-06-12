@@ -1,36 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { Mail, Phone, MapPin, Github, Linkedin, ExternalLink, Menu, X, Send, User, Code, Briefcase, FolderOpen, MessageCircle, ChevronDown, Star, Award, Calendar, Zap, CheckCircle, AlertCircle } from 'lucide-react';
+import logo from '../assets/myimg.png'
 
-// Debug environment variables
-console.log('Environment variables debug:', {
-  NODE_ENV: import.meta.env.MODE,
-  VITE_EMAILJS_SERVICE_ID: import.meta.env.VITE_EMAILJS_SERVICE_ID,
-  VITE_EMAILJS_TEMPLATE_ID: import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-  VITE_EMAILJS_PUBLIC_KEY: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
-  VITE_TO_EMAIL: import.meta.env.VITE_TO_EMAIL,
-  allEnvVars: import.meta.env
-});
-
-// Temporary hardcoded configuration for testing (remove in production)
 const TEMP_EMAILJS_CONFIG = {
   serviceId: 'service_your_actual_id',
   templateId: 'template_your_actual_id', 
   publicKey: 'your_actual_public_key'
 };
 
-// EmailJS configuration using Vite environment variables with fallbacks
 const EMAILJS_CONFIG = {
   serviceId: import.meta.env.VITE_EMAILJS_SERVICE_ID || TEMP_EMAILJS_CONFIG.serviceId,
   templateId: import.meta.env.VITE_EMAILJS_TEMPLATE_ID || TEMP_EMAILJS_CONFIG.templateId,
   publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY || TEMP_EMAILJS_CONFIG.publicKey
 };
 
-// Check if all required environment variables are loaded
 const isEmailJSConfigured = () => {
   const configured = EMAILJS_CONFIG.serviceId && 
          EMAILJS_CONFIG.templateId && 
          EMAILJS_CONFIG.publicKey &&
-         // Check if they're actual EmailJS values (start with service_, template_, etc.)
          EMAILJS_CONFIG.serviceId.startsWith('service_') &&
          EMAILJS_CONFIG.templateId.startsWith('template_');
   
@@ -43,7 +30,7 @@ const isEmailJSConfigured = () => {
     values: {
       serviceId: EMAILJS_CONFIG.serviceId,
       templateId: EMAILJS_CONFIG.templateId,
-      publicKey: EMAILJS_CONFIG.publicKey?.slice(0, 10) + '...' // Only show first 10 chars for security
+      publicKey: EMAILJS_CONFIG.publicKey?.slice(0, 10) + '...'
     }
   });
   
@@ -67,10 +54,8 @@ export default function Portfolio() {
   });
   const [emailjsLoaded, setEmailjsLoaded] = useState(false);
 
-  // Load EmailJS dynamically
   useEffect(() => {
     const loadEmailJS = () => {
-      // Check if EmailJS is configured
       if (!isEmailJSConfigured()) {
         console.warn('EmailJS environment variables not configured. Using fallback mailto method.');
         setEmailjsLoaded(false);
@@ -142,7 +127,6 @@ export default function Portfolio() {
   const handleSubmit = async () => {
     const { name, email, subject, message } = formData;
     
-    // Validation
     if (!name || !email || !subject || !message) {
       setSubmitStatus({
         loading: false,
@@ -151,8 +135,6 @@ export default function Portfolio() {
       });
       return;
     }
-
-    // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       setSubmitStatus({
@@ -167,9 +149,7 @@ export default function Portfolio() {
 
     try {
       if (emailjsLoaded && window.emailjs && isEmailJSConfigured()) {
-        // Send email using EmailJS
         const templateParams = {
-          // Standard EmailJS template variables
           from_name: name,
           user_name: name,
           name: name,
@@ -182,11 +162,9 @@ export default function Portfolio() {
           message: message,
           user_message: message,
           reply_to: email,
-          // Additional fields for better email formatting
           timestamp: new Date().toLocaleString(),
           source: 'Portfolio Website',
           website_url: window.location.origin,
-          // Extra variables that might be used in template
           contact_name: name,
           sender_name: name,
           visitor_name: name
@@ -217,7 +195,6 @@ export default function Portfolio() {
             error: null
           });
 
-          // Clear form after successful submission
           setFormData({
             name: '',
             email: '',
@@ -225,7 +202,6 @@ export default function Portfolio() {
             message: ''
           });
 
-          // Auto-hide success message after 5 seconds
           setTimeout(() => {
             setSubmitStatus(prev => ({ ...prev, success: false }));
           }, 5000);
@@ -234,20 +210,19 @@ export default function Portfolio() {
           throw new Error(`EmailJS service returned status: ${response.status}`);
         }
       } else {
-        // Fallback to mailto if EmailJS is not available or not configured
         console.log('Using mailto fallback...');
         const toEmail = import.meta.env.VITE_TO_EMAIL || 'abdullahmed1575@gmail.com';
         const mailtoLink = `mailto:${toEmail}?subject=${encodeURIComponent(`Portfolio Contact: ${subject}`)}&body=${encodeURIComponent(`
-Name: ${name}
-Email: ${email}
-Subject: ${subject}
+        Name: ${name}
+        Email: ${email}
+        Subject: ${subject}
 
-Message:
-${message}
+        Message:
+        ${message}
 
----
-Sent from your portfolio website at ${new Date().toLocaleString()}
-Website: ${window.location.origin}
+        ---
+        Sent from your portfolio website at ${new Date().toLocaleString()}
+        Website: ${window.location.origin}
         `)}`;
         
         window.open(mailtoLink, '_blank');
@@ -258,7 +233,6 @@ Website: ${window.location.origin}
           error: null
         });
 
-        // Clear form
         setFormData({
           name: '',
           email: '',
@@ -266,7 +240,6 @@ Website: ${window.location.origin}
           message: ''
         });
 
-        // Auto-hide success message
         setTimeout(() => {
           setSubmitStatus(prev => ({ ...prev, success: false }));
         }, 5000);
@@ -459,9 +432,7 @@ Website: ${window.location.origin}
                       <div className="text-center space-y-4">
                         <div className="text-white flex justify-center">
                           <div className="w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-full flex items-center justify-center">
-                            <User size={32} className="md:hidden text-black" />
-                            <User size={48} className="hidden md:block lg:hidden text-black" />
-                            <User size={64} className="hidden lg:block text-black" />
+                            <img src={logo} alt="" />
                           </div>
                         </div>
                       </div>
@@ -869,7 +840,6 @@ Website: ${window.location.origin}
                     ></textarea>
                   </div>
 
-                  {/* Status Messages */}
                   {submitStatus.error && (
                     <div className="flex items-center space-x-3 p-4 bg-red-900/20 border border-red-500/30 rounded-lg text-red-400 text-sm">
                       <AlertCircle size={20} className="flex-shrink-0" />
@@ -910,7 +880,6 @@ Website: ${window.location.origin}
                     )}
                   </button>
 
-                  {/* Service Status Indicator */}
                   <div className="flex items-center justify-center space-x-2 text-xs text-gray-500">
                     <div className={`w-2 h-2 rounded-full animate-pulse ${
                       isEmailJSConfigured() && emailjsLoaded 
@@ -944,6 +913,27 @@ Website: ${window.location.origin}
             <p className="text-gray-400 text-sm md:text-base">
               © 2024 Abdullah Ahmed. Crafted with React.js & Tailwind CSS.
             </p>
+            <div className="flex justify-center items-center space-x-6">
+                <a 
+                    href="https://www.linkedin.com/in/abdullahmed1575/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="group flex items-center justify-center w-12 h-12 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white rounded-xl transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-blue-500/25"
+                    aria-label="LinkedIn Profile"
+                >
+                    <Linkedin size={24} className="group-hover:rotate-12 transition-transform duration-300" />
+                </a>
+                
+                <a 
+                    href="https://github.com/ABDULLAHAHMED1575" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="group flex items-center justify-center w-12 h-12 bg-gradient-to-r from-gray-700 to-gray-800 hover:from-gray-600 hover:to-gray-700 text-white rounded-xl transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-gray-500/25"
+                    aria-label="GitHub Profile"
+                >
+                    <Github size={24} className="group-hover:rotate-12 transition-transform duration-300" />
+                </a>
+            </div>
             <div className="flex justify-center space-x-2 md:space-x-4">
               <div className="w-12 md:w-16 h-0.5 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-full"></div>
               <div className="w-8 md:w-12 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full"></div>
