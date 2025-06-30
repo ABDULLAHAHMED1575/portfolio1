@@ -766,7 +766,7 @@ export default function Portfolio() {
                           <p className="text-gray-400 text-xs md:text-sm">Full-Stack Solution</p>
                         </div>
                       </div>
-                      <span className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 text-purple-400 px-2 md:px-3 py-1 rounded-full text-xs font-bold border border-purple-400/30 mt-2 sm:mt-0 self-start sm:self-auto">2024</span>
+                      <span className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 text-purple-400 px-2 md:px-3 py-1 rounded-full text-xs font-bold border border-purple-400/30 mt-2 sm:mt-0 self-start sm:self-auto">2025</span>
                     </div>
                     
                     <p className="text-gray-400 leading-relaxed text-sm md:text-base">
