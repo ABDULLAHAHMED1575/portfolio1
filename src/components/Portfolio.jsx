@@ -592,7 +592,75 @@ export default function Portfolio() {
               <div className="space-y-6 sm:space-y-8 md:space-y-12">
                 <div className="relative pl-12 sm:pl-16 md:pl-20 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
                   <div className="absolute left-2.5 sm:left-4 md:left-6 w-3 sm:w-4 h-3 sm:h-4 bg-cyan-500 rounded-full border-2 sm:border-4 border-black"></div>
-                  
+
+                  <div className="bg-gradient-to-br from-gray-900/80 to-black/80 rounded-lg md:rounded-xl lg:rounded-2xl p-4 sm:p-6 md:p-8 border border-gray-700 hover:border-cyan-400/50 transition-all duration-500 backdrop-blur-sm">
+                    <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-3 sm:mb-4 md:mb-6">
+                      <div className="space-y-1 sm:space-y-2">
+                        <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white">Full Stack Developer</h3>
+                        <p className="text-cyan-400 text-sm sm:text-base md:text-lg font-semibold">Accelerec</p>
+                      </div>
+                      <div className="flex items-center space-x-2 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-lg md:rounded-xl px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 border border-cyan-400/30 mt-2 lg:mt-0">
+                        <Calendar size={12} className="sm:hidden text-cyan-400" />
+                        <Calendar size={14} className="hidden sm:block md:hidden text-cyan-400" />
+                        <Calendar size={16} className="hidden md:block text-cyan-400" />
+                        <span className="text-gray-300 text-xs md:text-sm font-medium">Nov 2025 – Present</span>
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 md:gap-4">
+                      {[
+                        'Developing scalable Applicant Tracking System (ATS) using Next.js, FastAPI, PostgreSQL',
+                        'Built job management, candidate tracking, filtering and search',
+                        'Implemented Server-Side Rendering (SSR) to improve performance and SEO',
+                        'Developed Activity Logs and Audit Logs with database migrations',
+                        'Built modern UI using TailwindCSS and ShadCN'
+                      ].map((item, index) => (
+                        <div key={index} className="flex items-start space-x-2 sm:space-x-3 p-2 md:p-3 rounded-lg md:rounded-xl hover:bg-gray-800/50 transition-all duration-300">
+                          <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-full mt-1 sm:mt-1.5 md:mt-2 flex-shrink-0"></div>
+                          <span className="text-gray-300 text-xs md:text-sm leading-relaxed">{item}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="relative pl-12 sm:pl-16 md:pl-20 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+                  <div className="absolute left-2.5 sm:left-4 md:left-6 w-3 sm:w-4 h-3 sm:h-4 bg-purple-500 rounded-full border-2 sm:border-4 border-black"></div>
+
+                  <div className="bg-gradient-to-br from-gray-900/80 to-black/80 rounded-lg md:rounded-xl lg:rounded-2xl p-4 sm:p-6 md:p-8 border border-gray-700 hover:border-cyan-400/50 transition-all duration-500 backdrop-blur-sm">
+                    <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-3 sm:mb-4 md:mb-6">
+                      <div className="space-y-1 sm:space-y-2">
+                        <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white">Full Stack Developer</h3>
+                        <p className="text-cyan-400 text-sm sm:text-base md:text-lg font-semibold">Glacier Agency</p>
+                      </div>
+                      <div className="flex items-center space-x-2 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-lg md:rounded-xl px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 border border-cyan-400/30 mt-2 lg:mt-0">
+                        <Calendar size={12} className="sm:hidden text-cyan-400" />
+                        <Calendar size={14} className="hidden sm:block md:hidden text-cyan-400" />
+                        <Calendar size={16} className="hidden md:block text-cyan-400" />
+                        <span className="text-gray-300 text-xs md:text-sm font-medium">Jul 2025 – Dec 2025</span>
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 md:gap-4">
+                      {[
+                        'Built custom Shopify applications using GraphQL Admin API',
+                        'Developed frontend using React.js',
+                        'Built backend using Node.js and Express.js',
+                        'Collaborated on deployment, testing and performance optimization',
+                        'Conducted code reviews and debugging'
+                      ].map((item, index) => (
+                        <div key={index} className="flex items-start space-x-2 sm:space-x-3 p-2 md:p-3 rounded-lg md:rounded-xl hover:bg-gray-800/50 transition-all duration-300">
+                          <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-full mt-1 sm:mt-1.5 md:mt-2 flex-shrink-0"></div>
+                          <span className="text-gray-300 text-xs md:text-sm leading-relaxed">{item}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="relative pl-12 sm:pl-16 md:pl-20 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
+                  <div className="absolute left-2.5 sm:left-4 md:left-6 w-3 sm:w-4 h-3 sm:h-4 bg-pink-500 rounded-full border-2 sm:border-4 border-black"></div>
+
                   <div className="bg-gradient-to-br from-gray-900/80 to-black/80 rounded-lg md:rounded-xl lg:rounded-2xl p-4 sm:p-6 md:p-8 border border-gray-700 hover:border-cyan-400/50 transition-all duration-500 backdrop-blur-sm">
                     <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-3 sm:mb-4 md:mb-6">
                       <div className="space-y-1 sm:space-y-2">
@@ -606,7 +674,7 @@ export default function Portfolio() {
                         <span className="text-gray-300 text-xs md:text-sm font-medium">July 2024 – December 2024</span>
                       </div>
                     </div>
-                    
+
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 md:gap-4">
                       {[
                         'Developed web applications using React.js and TypeScript',
@@ -750,11 +818,11 @@ export default function Portfolio() {
                   </div>
                 </div>
 
-                <div className="group relative bg-gradient-to-br from-gray-900/80 to-black/80 rounded-xl md:rounded-2xl lg:rounded-3xl p-4 sm:p-6 md:p-8 border border-gray-700 hover:border-purple-400/50 transition-all duration-700 backdrop-blur-sm animate-fade-in-up md:col-span-2" style={{ animationDelay: '0.6s' }}>
+                <div className="group relative bg-gradient-to-br from-gray-900/80 to-black/80 rounded-xl md:rounded-2xl lg:rounded-3xl p-4 sm:p-6 md:p-8 border border-gray-700 hover:border-purple-400/50 transition-all duration-700 backdrop-blur-sm animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
                   <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-pink-500/5 rounded-xl md:rounded-2xl lg:rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-                  
+
                   <div className="relative z-10 space-y-3 sm:space-y-4 md:space-y-6">
-                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                    <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2 sm:space-x-3">
                         <div className="w-8 sm:w-10 md:w-12 h-8 sm:h-10 md:h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg md:rounded-xl lg:rounded-2xl flex items-center justify-center">
                           <Briefcase size={16} className="sm:hidden text-white" />
@@ -766,14 +834,14 @@ export default function Portfolio() {
                           <p className="text-gray-400 text-xs md:text-sm">Full-Stack Solution</p>
                         </div>
                       </div>
-                      <span className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 text-purple-400 px-2 md:px-3 py-1 rounded-full text-xs font-bold border border-purple-400/30 mt-2 sm:mt-0 self-start sm:self-auto">2025</span>
+                      <span className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 text-purple-400 px-2 md:px-3 py-1 rounded-full text-xs font-bold border border-purple-400/30">2025</span>
                     </div>
-                    
+
                     <p className="text-gray-400 leading-relaxed text-sm md:text-base">
-                      Complete team collaboration platform with task management, member roles, and project tracking. 
+                      Complete team collaboration platform with task management, member roles, and project tracking.
                       Built with React, Node.js, and PostgreSQL for scalable workflow organization.
                     </p>
-                    
+
                     <div className="flex flex-wrap gap-1.5 sm:gap-2">
                       {['React.js', 'Node.js' , 'Express.js', 'Postgressql', 'Javascript'].map((tech) => (
                         <span key={tech} className="bg-gray-800 text-gray-300 px-2 md:px-3 py-1 rounded-lg text-xs font-medium border border-gray-600">
@@ -781,11 +849,11 @@ export default function Portfolio() {
                         </span>
                       ))}
                     </div>
-                    
+
                     <div className="flex flex-col xs:flex-row gap-3 sm:gap-4">
-                      <a 
-                        href="https://github.com/ABDULLAHAHMED1575/task-manager" 
-                        target="_blank" 
+                      <a
+                        href="https://github.com/ABDULLAHAHMED1575/task-manager"
+                        target="_blank"
                         rel="noopener noreferrer"
                         className="group/link inline-flex items-center space-x-2 text-purple-400 hover:text-white font-semibold transition-all duration-300 text-sm md:text-base"
                       >
@@ -797,9 +865,9 @@ export default function Portfolio() {
                         <ExternalLink size={12} className="hidden sm:block md:hidden group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform duration-300" />
                         <ExternalLink size={16} className="hidden md:block group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform duration-300" />
                       </a>
-                      <a 
-                        href="https://task-manager-sigma-neon.vercel.app" 
-                        target="_blank" 
+                      <a
+                        href="https://task-manager-sigma-neon.vercel.app"
+                        target="_blank"
                         rel="noopener noreferrer"
                         className="group/link inline-flex items-center space-x-2 text-cyan-400 hover:text-white font-semibold transition-all duration-300 text-sm md:text-base"
                       >
@@ -812,6 +880,56 @@ export default function Portfolio() {
                         <ExternalLink size={16} className="hidden md:block group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform duration-300" />
                       </a>
                     </div>
+                  </div>
+                </div>
+
+                <div className="group relative bg-gradient-to-br from-gray-900/80 to-black/80 rounded-xl md:rounded-2xl lg:rounded-3xl p-4 sm:p-6 md:p-8 border border-gray-700 hover:border-cyan-400/50 transition-all duration-700 backdrop-blur-sm animate-fade-in-up" style={{ animationDelay: '0.8s' }}>
+                  <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-purple-500/5 rounded-xl md:rounded-2xl lg:rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+
+                  <div className="relative z-10 space-y-3 sm:space-y-4 md:space-y-6">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center space-x-2 sm:space-x-3">
+                        <div className="w-8 sm:w-10 md:w-12 h-8 sm:h-10 md:h-12 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg md:rounded-xl lg:rounded-2xl flex items-center justify-center">
+                          <Zap size={16} className="sm:hidden text-white" />
+                          <Zap size={20} className="hidden sm:block md:hidden text-white" />
+                          <Zap size={24} className="hidden md:block text-white" />
+                        </div>
+                        <div>
+                          <h3 className="text-base sm:text-lg md:text-xl font-bold text-white group-hover:text-cyan-400 transition-colors duration-300">Drive Unity</h3>
+                          <p className="text-gray-400 text-xs md:text-sm">AI Multi-Drive Search</p>
+                        </div>
+                      </div>
+                      <span className="bg-gradient-to-r from-cyan-500/20 to-blue-500/20 text-cyan-400 px-2 md:px-3 py-1 rounded-full text-xs font-bold border border-cyan-400/30">2025</span>
+                    </div>
+
+                    <p className="text-gray-400 leading-relaxed text-sm md:text-base">
+                      AI-powered system to search files across Google Drive and OneDrive with RAG-based
+                      intelligent file retrieval, file preview and role-based access control. Deployed
+                      using Docker with an autonomous CI/CD pipeline.
+                    </p>
+
+                    <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                      {['Next.js', 'FastAPI', 'Temporal', 'RAG', 'AI', 'Docker', 'CI/CD'].map((tech) => (
+                        <span key={tech} className="bg-gray-800 text-gray-300 px-2 md:px-3 py-1 rounded-lg text-xs font-medium border border-gray-600">
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+
+                    <a
+                      href="https://driveunity.forginai.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group/link inline-flex items-center space-x-2 text-cyan-400 hover:text-white font-semibold transition-all duration-300 text-sm md:text-base"
+                    >
+                      <ExternalLink size={14} className="sm:hidden group-hover/link:rotate-12 transition-transform duration-300" />
+                      <ExternalLink size={16} className="hidden sm:block md:hidden group-hover/link:rotate-12 transition-transform duration-300" />
+                      <ExternalLink size={20} className="hidden md:block group-hover/link:rotate-12 transition-transform duration-300" />
+                      <span>Live Demo</span>
+                      <ExternalLink size={10} className="sm:hidden group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform duration-300" />
+                      <ExternalLink size={12} className="hidden sm:block md:hidden group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform duration-300" />
+                      <ExternalLink size={16} className="hidden md:block group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform duration-300" />
+                    </a>
                   </div>
                 </div>
               </div>
